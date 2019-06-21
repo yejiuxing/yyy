@@ -55,7 +55,7 @@
     var txtDiv = document.getElementById('txt');
     var fileBtn = document.getElementById("up-button");
     var img = new Image();
-    img.src = 'abn.gif';
+    img.src = 'abn.jpg';
     img.onload = init; // 图片加载完开始转换
     fileBtn.onchange = getImg;
      
@@ -132,8 +132,11 @@
     function getImg(file) {
         var reader = new FileReader();
         reader.readAsDataURL(fileBtn.files[0]);
-        reader.onload = function () {
-            img.src = reader.result;
+        reader.onload = function (e) {
+            var img = '<img src='+ e.target.result +'>';
+			srcword = e.target.result;
+			img = '<div class="item">'+img+'<i class="iconfont icon-guanbi1"></i></div>';
+			$('#lee').html(img);
         }
     }
      
