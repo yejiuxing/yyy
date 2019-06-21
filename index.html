@@ -132,11 +132,8 @@
     function getImg(file) {
         var reader = new FileReader();
         reader.readAsDataURL(fileBtn.files[0]);
-        reader.onload = function (e) {
-            var img = '<img src='+ e.target.result +'>';
-			srcword = e.target.result;
-			img = '<div class="item">'+img+'<i class="iconfont icon-guanbi1"></i></div>';
-			$('#lee').html(img);
+        reader.onload = function () {
+            img.src = reader.result;
         }
     }
      
